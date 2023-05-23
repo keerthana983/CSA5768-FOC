@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+double calculateExponentialSeries(double x, int n) {
+    double result = 1.0;  // Start with the first term
+    double term = 1.0;
+
+    for (int i = 1; i <= n; i++) {
+        term *= x / i;
+        result += term;
+    }
+
+    return result;
+}
+
+int main() {
+    double x;
+    int n;
+
+    printf("Enter the value of x: ");
+    scanf("%lf", &x);
+
+    printf("Enter the number of terms to calculate: ");
+    scanf("%d", &n);
+
+    double approximation = calculateExponentialSeries(x, n);
+
+    printf("Approximation of e^%.2lf - 1 using %d terms: %.6lf\n", x, n, approximation);
+
+    return 0;
+}
